@@ -67,6 +67,8 @@ var LeafletShades = L.Layer.extend({
 	_updateShades: function (bounds) {
 		if (bounds !== this._bounds) this._bounds = bounds;
 
+		if (!this._map) return;
+
 		const size = this._map.getSize();
 		const northEastPoint = this._map.latLngToContainerPoint(bounds.getNorthEast());
 		const southWestPoint = this._map.latLngToContainerPoint(bounds.getSouthWest());
